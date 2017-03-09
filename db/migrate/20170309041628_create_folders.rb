@@ -2,7 +2,7 @@ class CreateFolders < ActiveRecord::Migration[5.0]
   def change
     create_table :folders do |t|
       t.string :name
-      t.enum :permission
+      t.integer :permission
       t.datetime :created_at
       t.datetime :updated_at
       t.references :user, foreign_key: true
