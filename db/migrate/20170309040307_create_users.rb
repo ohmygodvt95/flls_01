@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :avatar
       t.date :date_of_birth
       t.boolean :admin
-      t.enum :account
+      t.integer :account
 
       t.timestamps
     end
