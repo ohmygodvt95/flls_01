@@ -21,3 +21,20 @@
 
 en:
   hello: "Hello world"
+  web_name: "Flash Go"
+  static_pages:
+    about:
+      title: "About"
+    help:
+      title: "Help"
+    home:
+      title: "Welcome to Flash Go"
+      signup: "Sign up now!"
+  layouts:
+    footer:
+      about: "About"
+      help: "Help"
+      copyright: "@Copyright IS Team - Framgia internship"
+    header:
+      home: "Home"
+      title: "Flash Go"
