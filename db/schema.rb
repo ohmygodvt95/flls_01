@@ -71,15 +71,13 @@ ActiveRecord::Schema.define(version: 20170309044656) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "password"
-    t.string   "password_confirmation"
     t.string   "remember_token"
     t.string   "avatar"
     t.date     "date_of_birth"
     t.boolean  "admin"
     t.integer  "account"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "words", force: :cascade do |t|

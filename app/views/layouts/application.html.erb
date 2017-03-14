@@ -4,10 +4,10 @@
     <title><%= t "web_name" %></title>
     <%= stylesheet_link_tag "application", media: "all",
       "data-turbolinks-track": true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track": true %>
+    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
+  <body ng-app="FlashGo">
     <%= render "layouts/header" %>
     <div class="container-fluid home">
       <% flash.each do |message_type, message| %>

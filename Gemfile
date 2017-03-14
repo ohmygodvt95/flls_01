@@ -3,7 +3,6 @@ source "https://rubygems.org"
 gem "rails", "~> 5.0.2"
 gem "sqlite3"
 gem "bootstrap-datepicker-rails"
-gem "bootstrap-sass", "3.2.0.0"
 gem "puma", "~> 3.0"
 gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
@@ -12,6 +11,11 @@ gem "jquery-rails"
 gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
 gem "sdoc", "~> 0.4.0", group: :doc
+gem "angular-rails-templates"
+gem "bootstrap-sass", "~> 3.3.6"
+gem "bower-rails"
+gem "config"
+
 group :development, :test do
   gem "byebug", platform: :mri
 end
