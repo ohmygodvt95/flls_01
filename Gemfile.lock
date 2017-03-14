@@ -38,11 +38,19 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    angular-rails-templates (1.0.2)
+      railties (>= 4.2, < 6)
+      sprockets (>= 3.0, < 5)
+      tilt
     arel (7.1.4)
+    autoprefixer-rails (6.7.7)
+      execjs
     bootstrap-datepicker-rails (1.6.4.1)
       railties (>= 3.0)
-    bootstrap-sass (3.2.0.0)
-      sass (~> 3.2)
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
+    bower-rails (0.11.0)
     builder (3.2.3)
     byebug (9.0.6)
     coffee-rails (4.2.1)
@@ -53,7 +61,11 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    config (1.4.0)
+      activesupport (>= 3.0)
+      deep_merge (~> 1.1.1)
     debug_inspector (0.0.2)
+    deep_merge (1.1.1)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
@@ -163,10 +175,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  angular-rails-templates
   bootstrap-datepicker-rails
-  bootstrap-sass (= 3.2.0.0)
+  bootstrap-sass (~> 3.3.6)
+  bower-rails
   byebug
   coffee-rails (~> 4.2)
+  config
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
@@ -183,4 +198,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.12.5
+   1.13.7

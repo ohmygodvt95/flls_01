@@ -1,0 +1,22 @@
+{
+  "name": "FlashGo",
+  "homepage": "https://github.com/ohmygodvt95/flls_01",
+  "authors": [
+    "ThienLV <ohmygodvt95@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower_components/assets",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#^1.6.3",
+    "angular-ui-router": "^0.4.2"
+  }
+}
