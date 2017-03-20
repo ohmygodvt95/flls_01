@@ -17,3 +17,10 @@ en:
       about: "About"
       help: "Help"
       copyright: "@ Copyright IS Team - Framgia internship"
+  users:
+    error:
+      auth_error: "Authenticate error"
+      user_not_found: "Account does not exist!"
+  folders:
+    folders: " folders"
+    you_have_created: "You have created "

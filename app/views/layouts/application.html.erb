@@ -1,11 +1,10 @@
-<!DOCTYPE html>
+<!DOCTYPE html5>
 <html>
   <head>
     <title><%= t "app_name" %> - <%= t "slogan" %></title>
-    <%= stylesheet_link_tag "application", media: "all",
-      "data-turbolinks-track": true %>
-    <%= javascript_include_tag "application" %>
+    <%= stylesheet_link_tag "application", media: "all" %>
     <%= csrf_meta_tags %>
+    <meta name="base" content="<%= root_path %>api/v1/">
   </head>
   <body ng-app="FlashGo">
     <%= render "layouts/header" %>
@@ -18,5 +17,6 @@
     <footer class="footer">
       <%= render "layouts/footer" %>
     </footer>
+    <%= javascript_include_tag "application" %>
   </body>
 </html>
