@@ -1,20 +1,19 @@
 en:
   hello: "Hello world"
-  web_name: "Flash Go"
-  slogan: "Thay đổi bản thân  để kiến  tạot hế giới "
+  app_name: "Flash Go"
+  slogan: "Thay đổi bản thân  để kiến  tạo thế giới "
+  navbar:
+    login_with_google: "Login with Google"
+    logout: Logout
+    profile: Profile
+    setting: Setting
   static_pages:
     about:
       title: "About"
     help:
       title: "Help"
-    home:
-      title: "Welcome to Flash Go"
-      signup: "Sign up now!"
   layouts:
     footer:
       about: "About"
       help: "Help"
       copyright: "@ Copyright IS Team - Framgia internship"
-    header:
-      home: "Home"
-      title: "Flash Go"

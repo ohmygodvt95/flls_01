@@ -15,6 +15,9 @@ gem "angular-rails-templates"
 gem "bootstrap-sass", "~> 3.3.6"
 gem "bower-rails"
 gem "config"
+gem "active_model_serializers"
+gem "devise"
+gem "omniauth-google-oauth2"
 
 group :development, :test do
   gem "byebug", platform: :mri

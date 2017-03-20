@@ -1,1 +1,1 @@
-var app = angular.module('FlashGo', ['ui.router', 'templates']);
+var app = angular.module('FlashGo', ['ui.router', 'templates', 'Devise']);
