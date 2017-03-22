@@ -1,12 +1,12 @@
-<h2><%= I18n.t "folders.there_are" %> {{ data.length }} <%= I18n.t "folders.folders" %></h2>
+<h2><%= I18n.t "folders.there_are" %> {{ data.length }} <%= I18n.t "folders.set" %></h2>
 <hr>
 <div class="row">
   <div class="col-sm-9 custom-list">
     <md-list flex>
-      <md-list-item class="md-3-line custom-list-item"
-        ng-repeat="item in data" ng-click="show(item)">
+      <md-list-item class="md-3-line custom-list-item" ng-repeat="item in data"
+        ng-click="show(item)">
         <div class="md-list-item-text" layout="column">
-          <h5>5 set</h5>
+          <h5>5 words</h5>
           <h2 title="{{ item.name }}">
             <i class="fa fa-fw fa-folder"></i>{{ item.name }}
           </h2>

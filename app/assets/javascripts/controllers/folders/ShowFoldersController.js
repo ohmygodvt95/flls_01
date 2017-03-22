@@ -1,5 +1,5 @@
 app
-  .controller('FoldersController', function ($scope, $state, $stateParams, Auth, Folders, user_id) {
+  .controller('ShowFoldersController', function ($scope, $state, $stateParams, Auth, Folders, user_id) {
     /**
      * Init data
      */
@@ -14,7 +14,7 @@ app
      * @param folder: folder object
      */
     $scope.show = function (folder) {
-      $state.go('users.user.folders.folder', {user_id: user_id, folder_id: folder.id})
+      $state.go('')
     };
 
     /**

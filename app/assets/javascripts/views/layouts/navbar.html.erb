@@ -1,5 +1,5 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse"
         data-target=".navbar-ex1-collapse">
@@ -8,29 +8,46 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" ui-sref="home"><%= I18n.t "app_name" %></a>
+      <a class="navbar-brand" ui-sref="home">
+        <a class="navbar-brand" href="#">
+          <%= I18n.t "app_name" %>
+        </a>
+      </a>
     </div>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav navbar-right">
         <li ng-if="!signedIn()">
-          <%= link_to I18n.t("navbar.login_with_google"),
-            user_google_oauth2_omniauth_authorize_path %>
+          <a href="<%= user_google_oauth2_omniauth_authorize_path %>" class="md-button">
+            <%= I18n.t("navbar.login_with_google") %>
+          </a>
         </li>
         <li class="dropdown" ng-if="signedIn()">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-            aria-haspopup="true" aria-expanded="false">
-            {{ user.username }} <span class="caret"></span>
+          <a href="#" class="dropdown-toggle">
+            <md-menu md-position-mode="target-right target" md-offset="-5 50">
+              {{ user.username }}
+              <md-fab aria-label="Open menu" ng-click="$mdMenu.open($event)">
+                <span class="fa fa-fw fa-cog"></span>
+              </md-fab>
+              <md-menu-content width="3">
+                <md-menu-item>
+                  <md-button ui-sref="users.user.profile({user_id: user.id})">
+                    <%= I18n.t "navbar.profile" %>
+                  </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                  <md-button>
+                    <%= I18n.t "navbar.setting" %>
+                  </md-button>
+                </md-menu-item>
+                <md-divider></md-divider>
+                <md-menu-item>
+                  <md-button ng-click="logout()">
+                    <i class="fa fa-fw fa-sign-out"></i> <%= I18n.t "navbar.logout" %>
+                  </md-button>
+                </md-menu-item>
+              </md-menu-content>
+            </md-menu>
           </a>
-          <ul class="dropdown-menu">
-            <li><a href="#"><%= I18n.t "navbar.profile" %></a></li>
-            <li><a href="#"><%= I18n.t "navbar.setting" %></a></li>
-            <li role="separator" class="divider"></li>
-            <li>
-              <a ng-click="logout()" href="#">
-                <%= I18n.t "navbar.logout" %>
-              </a>
-            </li>
-          </ul>
         </li>
       </ul>
     </div>
