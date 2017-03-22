@@ -1,0 +1,5 @@
+<h2><%= I18n.t "folders.you_have_created" %> {{ data.length }} <%= I18n.t "folders.folders" %> </h2>
+<hr>
+<div class="list-group">
+  <a href="#" class="list-group-item" ng-repeat="item in data">{{ item.name }}</a>
+</div>
