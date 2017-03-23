@@ -24,3 +24,6 @@ en:
   folders:
     folders: " folders"
     you_have_created: "You have created "
+  subjects:
+    subjects: " subjects"
+    you_have_created: "You have created "

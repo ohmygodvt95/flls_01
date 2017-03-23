@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     scope :v1 do
       resources :users, only: [:show] do
         resources :folders, only: [:index, :create]
+        resources :subjects, only: [:index, :create]
       end
     end
   end

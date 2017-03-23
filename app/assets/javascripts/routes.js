@@ -50,6 +50,15 @@ app
           }
         }
       })
+      .state('users.user.subjects', {
+        url: '/subjects',
+        views: {
+          'content@users': {
+            templateUrl: 'views/subjects/index.html',
+            controller: 'SubjectsController'
+          }
+        }
+      })
       .state('home', {
         url: '/home',
         views: {
