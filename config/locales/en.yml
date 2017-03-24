@@ -23,7 +23,8 @@ en:
       user_not_found: "Account does not exist!"
   folders:
     folders: " folders"
-    you_have_created: "You have created "
+    set: " set"
+    there_are: "There are "
   subjects:
     subjects: " subjects"
     you_have_created: "You have created "
