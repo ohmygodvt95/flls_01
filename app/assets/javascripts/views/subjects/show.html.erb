@@ -1,0 +1,28 @@
+<h2><%= I18n.t "subjects.there_are" %> {{ data.length }} <%= I18n.t "subjects.word" %></h2>
+<hr>
+<div class="row">
+  <div class="col-sm-9 custom-list">
+    <md-list flex>
+      <md-list-item class="md-3-line custom-list-item" ng-repeat="item in data"
+                    ng-click="show(item)">
+        <div class="md-list-item-text" layout="column">
+          <div class="row">
+            <div class="col-sm-4 word"><%= I18n.t "subjects.word_content" %></div>
+            <div class="col-sm-4 border-left word"><%= I18n.t "subjects.word_definition" %></div>
+            <div class="col-sm-4 action">
+              <md-button class="md-icon-button md-mini pull-right">
+                <i class="fa fa-fw fa-pencil"></i>
+              </md-button>
+              <md-button class="md-icon-button md-mini pull-right">
+                <i class="fa fa-fw fa-volume-up"></i>
+              </md-button>
+              <md-button class="md-icon-button md-mini pull-right">
+                <i class="fa fa-fw fa-star-o"></i>
+              </md-button>
+            </div>
+          </div>
+        </div>
+      </md-list-item>
+    </md-list>
+  </div>
+</div>

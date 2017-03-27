@@ -1,5 +1,17 @@
-<h2><%= I18n.t "subjects.you_have_created" %> {{ data.length }} <%= I18n.t "subjects.subjects" %> </h2>
+<h2><%= I18n.t "subjects.there_are" %> {{ data.length }} <%= I18n.t "subjects.subjects" %></h2>
 <hr>
-<div class="list-group">
-  <a href="#" class="list-group-item" ng-repeat="item in data">{{ item.name }}</a>
+<div class="row">
+  <div class="col-sm-9 custom-list">
+    <md-list flex>
+      <md-list-item class="md-3-line custom-list-item"
+                    ng-repeat="item in data" ng-click="show(item)">
+        <div class="md-list-item-text" layout="column">
+          <h5><%= I18n.t "subjects.test_word" %></h5>
+          <h2 title="{{ item.name }}">
+            <i class="fa fa-fw fa-file-text-o"></i>{{ item.name }}
+          </h2>
+        </div>
+      </md-list-item>
+    </md-list>
+  </div>
 </div>

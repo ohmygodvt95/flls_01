@@ -1,5 +1,5 @@
 app
-  .controller('SubjectsController', function ($scope, $state, $stateParams, Auth, Subjects, user_id) {
+  .controller('ShowSubjectsController', function ($scope, $state, $stateParams, Auth, Subjects, user_id) {
     /**
      * Init data
      */
@@ -14,7 +14,7 @@ app
      * @param subject: subject object
      */
     $scope.show = function (subject) {
-      $state.go('users.user.subjects.subject', {user_id: user_id, subject_id: subject.id})
+      $state.go('')
     };
 
     /**

@@ -70,6 +70,16 @@ navbar{
         color: #C0CACE;
       }
     }
+    .border-left{
+      border-left: 2px solid #fafafa;
+    }
+    .word{
+      height: 50px;
+      line-height: 50px;
+    }
+    .action{
+      padding-top: 6px;
+    }
   }
   .custom-list-item:hover {
     transition: 0.5s;

@@ -50,6 +50,15 @@ app
           }
         }
       })
+      .state('users.user.folders.folder', {
+        url: '/{folder_id: int}',
+        views: {
+          'content@users': {
+            templateUrl: 'views/folders/show.html',
+            controller: 'ShowFoldersController'
+          }
+        }
+      })
       .state('users.user.subjects', {
         url: '/subjects',
         views: {
@@ -59,12 +68,12 @@ app
           }
         }
       })
-      .state('users.user.folders.folder', {
-        url: '/{folder_id: int}',
+      .state('users.user.subjects.subject', {
+        url: '/{subject_id: int}',
         views: {
           'content@users': {
-            templateUrl: 'views/folders/show.html',
-            controller: 'ShowFoldersController'
+            templateUrl: 'views/subjects/show.html',
+            controller: 'ShowSubjectsController'
           }
         }
       })

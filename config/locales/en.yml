@@ -27,4 +27,8 @@ en:
     there_are: "There are "
   subjects:
     subjects: " subjects"
-    you_have_created: "You have created "
+    word: " word"
+    word_content: "word content"
+    word_definition: "word definition"
+    there_are: "There are "
+    test_word: "100 word"
