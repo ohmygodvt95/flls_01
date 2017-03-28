@@ -1,0 +1,46 @@
+<div class="col-sm-12 sidebar" ng-if="signedIn()">
+  <md-list dense>
+    <md-list-item ng-click="latestActivity()">
+      <i class="fa fa-fw fa-clock-o"></i>
+      <%= I18n.t "sidebar.latest_activity" %>
+    </md-list-item>
+    <md-list-item ng-click="setting()">
+      <i class="fa fa-fw fa-cog"></i>
+      <%= I18n.t "sidebar.settings" %>
+    </md-list-item>
+    <md-divider></md-divider>
+    <md-list-item class="heading">
+      <a ui-sref="users.user.subjects({ user_id: user.id })"><%= I18n.t "sidebar.your_subjects" %></a>
+    </md-list-item>
+    <md-list-item ng-click="createSubject()">
+      <i class="fa fa-fw fa-plus-square-o"></i>
+      <%= I18n.t "sidebar.create_subject" %>
+    </md-list-item>
+    <md-divider></md-divider>
+    <md-list-item class="heading">
+      <a ui-sref="users.user.folders({ user_id: user.id })"><%= I18n.t "sidebar.your_folders" %></a>
+    </md-list-item>
+    <md-list-item ng-click="createFolder()">
+      <i class="fa fa-fw fa-plus-square-o"></i>
+      <%= I18n.t "sidebar.create_folder" %>
+    </md-list-item>
+    <md-list-item ng-repeat="folder in data.folders"
+      ng-click="showFolder({user_id: user.id, folder_id: folder.id})">
+      <i class="fa fa-folder fa-fw"></i>
+      {{ folder.name }}
+    </md-list-item>
+    <md-divider></md-divider>
+    <md-list-item>
+      <a href="#"><%= I18n.t "layouts.footer.about" %></a>
+    </md-list-item>
+    <md-list-item>
+      <a href="#"><%= I18n.t "layouts.footer.help" %></a>
+    </md-list-item>
+    <md-list-item>
+      <a href="#"><%= I18n.t "layouts.footer.facebook" %></a>
+    </md-list-item>
+    <md-list-item>
+      <%= I18n.t "layouts.footer.copyright" %>
+    </md-list-item>
+  </md-list>
+</div>
