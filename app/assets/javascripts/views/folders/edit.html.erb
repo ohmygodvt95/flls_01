@@ -1,0 +1,48 @@
+<md-dialog aria-label="<%= I18n.t "folders.edit.edit_folder" %>">
+  <form ng-cloak name="form">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>
+          <%= I18n.t "folders.edit.edit_folder" %>:
+          <i class="fa fa-quote-left"></i>
+          {{ targetFolder.name }}
+          <i class="fa fa-quote-right"></i>
+        </h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="hide()">
+          <md-icon md-font-icon="fa fa-close" aria-label="<%= I18n.t "folders.new.close_dialog" %>"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content folder-new">
+        <md-content layout-padding layout="column">
+          <p class="text-center text-danger" ng-if="form.$invalid">
+            <%= I18n.t "folders.new.rule" %>
+          </p>
+          <md-input-container class="md-block">
+            <label><%= I18n.t "folders.new.title" %></label>
+            <input ng-model="folder.name" title="" required minlength="10">
+          </md-input-container>
+          <md-input-container>
+            <label><%= I18n.t "folders.new.visible" %></label>
+            <md-select ng-model="folder.permission">
+              <md-option value=0>
+                <%= I18n.t "folders.new.everyone" %>
+              </md-option>
+              <md-option value=1>
+                <%= I18n.t "folders.new.only_me" %>
+              </md-option>
+            </md-select>
+          </md-input-container>
+        </md-content>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <md-button type="submit" ng-disabled="form.$invalid"
+        ng-click="update(folder)" class="md-primary md-raised md-button" flex>
+        <%= I18n.t "folders.edit.update" %>
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

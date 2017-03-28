@@ -22,11 +22,33 @@ en:
     error:
       auth_error: "Authenticate error"
       user_not_found: "Account does not exist!"
+      unauthorized: "401 User Unauthorized"
   folders:
     folders: " folders"
     set: " set"
     there_are: "There are "
     folder_not_found: "Folder does not exist!"
+    new:
+      create: "Create"
+      create_folder: "Create a new folder"
+      close_dialog: "Close dialog"
+      everyone: "Everyone"
+      only_me: "Only me"
+      visible: "Visible"
+      title: "Title"
+      rule: "Invalid: * is require and title min length is 5 characters"
+    create:
+      created_folder: "Created folder: "
+      cant_create_folder: "Can't create a new folders"
+    edit:
+      edit: "Edit"
+      fork: "Fork"
+      delete: "Delete"
+      edit_folder: "Edit this folder"
+      update: "Update"
+    update:
+      success: "Updated folder: "
+      failure: "Update failure"
   subjects:
     subjects: " subjects"
     word: " word"

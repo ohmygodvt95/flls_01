@@ -1,15 +1,54 @@
-<h2><%= I18n.t "folders.there_are" %> {{ data.length }} <%= I18n.t "folders.folders" %></h2>
+<div class="row">
+  <div class="col-sm-9">
+    <h2 class="heading-info">
+      <%= I18n.t "folders.there_are" %> {{ data.length }}
+      <%= I18n.t "folders.folders" %>
+    </h2>
+  </div>
+</div>
 <hr>
 <div class="row">
   <div class="col-sm-9 custom-list">
     <md-list flex>
-      <md-list-item class="md-3-line custom-list-item"
-        ng-repeat="item in data" ng-click="show(item)">
-        <div class="md-list-item-text" layout="column">
-          <h5>5 set</h5>
-          <h2 title="{{ item.name }}">
-            <i class="fa fa-fw fa-folder"></i>{{ item.name }}
-          </h2>
+      <md-list-item class="md-2-line custom-list-item"
+        ng-repeat="item in data" ng-click="show($event, item)">
+        <div class="md-list-item-text" layout="column" ng-click="show($event, item)">
+          <div class="row">
+            <div class="col-sm-11">
+              <h5>5 set</h5>
+              <h2 title="{{ item.name }}">
+                <i class="fa fa-fw fa-folder"></i>{{ item.name }}
+              </h2>
+            </div>
+            <div class="col-sm-1 more">
+              <md-button ng-if="!canEditDelete" class="md-icon-button"
+                title="<%= I18n.t "folders.edit.fork" %>" ng-click="fork($event, item)"
+                aria-label="<%= I18n.t "folders.edit.fork" %>">
+                <i class="fa fa-code-fork fa-2x"></i>
+              </md-button>
+              <md-menu md-position-mode="target-right target" md-offset="-5 50"
+                ng-if="canEditDelete">
+                <md-button class="md-icon-button" aria-label="<%= I18n.t "folders.edit.edit" %>"
+                  ng-click="$mdMenu.open($event)">
+                  <md-icon md-font-icon="fa fa-fw fa-ellipsis-v fa-2x"></md-icon>
+                </md-button>
+                <md-menu-content width="3">
+                  <md-menu-item>
+                    <md-button ng-click="edit($event, item)">
+                      <i class="fa fa-fw fa-pencil"></i>
+                      <%= I18n.t "folders.edit.edit" %>
+                    </md-button>
+                  </md-menu-item>
+                  <md-menu-item>
+                    <md-button ng-click="destroy($event, item)">
+                      <i class="fa fa-fw fa-trash"></i>
+                      <%= I18n.t "folders.edit.delete" %>
+                    </md-button>
+                  </md-menu-item>
+                </md-menu-content>
+              </md-menu>
+            </div>
+          </div>
         </div>
       </md-list-item>
     </md-list>
