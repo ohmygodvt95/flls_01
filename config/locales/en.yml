@@ -16,7 +16,8 @@ en:
     footer:
       about: "About"
       help: "Help"
-      copyright: "@ Copyright IS Team - Framgia internship"
+      facebook: "Facebook"
+      copyright: "&copy Copyright IS Team"
   users:
     error:
       auth_error: "Authenticate error"
@@ -25,6 +26,7 @@ en:
     folders: " folders"
     set: " set"
     there_are: "There are "
+    folder_not_found: "Folder does not exist!"
   subjects:
     subjects: " subjects"
     word: " word"
@@ -32,3 +34,10 @@ en:
     word_definition: "word definition"
     there_are: "There are "
     test_word: "100 word"
+  sidebar:
+    latest_activity: "Latest activity"
+    settings: "Settings"
+    create_subject: "Create a subject"
+    your_subjects: "Your subjects"
+    create_folder: "Create a folder"
+    your_folders: "Your folders"

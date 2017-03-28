@@ -4,7 +4,7 @@ $accent-color: #FFCD1F;
 /* universal */
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #e9ebde;
+  background-color: #F0F0F0;
 }
 
 /* footer */
@@ -84,5 +84,30 @@ navbar{
   .custom-list-item:hover {
     transition: 0.5s;
     border-bottom: 5px solid $accent-color;
+  }
+}
+
+.sidebar{
+  background-color: $secondary-color;
+  box-shadow: 0 9px 0 0 white, 0 -9px 0px 0px white,
+    12px 0 15px -4px rgba(192, 202, 206, 0.8),
+    -12px 0 15px -4px rgba(192, 202, 206, 0.8);
+  .heading a{
+    font-size: 13px;
+    font-weight: bolder;
+    color: gray;
+    text-transform: uppercase;
+  }
+  .heading a:hover{
+    text-decoration: none;
+  }
+  .link:hover {
+    text-decoration: none;
+  }
+  .link{
+    color: #48484D;
+  }
+  md-list-item i.fa-folder {
+    color: #C0CACE;
   }
 }

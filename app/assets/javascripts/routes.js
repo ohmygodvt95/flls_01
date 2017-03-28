@@ -24,7 +24,8 @@ app
             templateUrl: 'views/users/layouts.html'
           },
           'sidebar@users': {
-            templateUrl: 'views/auth/login.html'
+            templateUrl: 'views/sidebar/index.html',
+            controller: 'SidebarController'
           }
         }
       })
@@ -56,6 +57,11 @@ app
           'content@users': {
             templateUrl: 'views/folders/show.html',
             controller: 'ShowFoldersController'
+          }
+        },
+        resolve: {
+          folder_id: function ($stateParams) {
+            return $stateParams.folder_id
           }
         }
       })
@@ -114,6 +120,14 @@ app
         views: {
           'main': {
             templateUrl: 'views/errors/user_not_found.html'
+          }
+        }
+      })
+      .state('folder_not_found', {
+        url: '/errors/folder-not-found',
+        views: {
+          'main': {
+            templateUrl: 'views/errors/folder_not_found.html'
           }
         }
       });

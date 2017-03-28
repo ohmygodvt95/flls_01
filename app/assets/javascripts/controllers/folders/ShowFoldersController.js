@@ -1,20 +1,20 @@
 app
-  .controller('ShowFoldersController', function ($scope, $state, $stateParams, Auth, Folders, user_id) {
+  .controller('ShowFoldersController', function ($scope, $state, $stateParams, Auth, Folders, user_id, folder_id) {
     /**
      * Init data
      */
     $scope.init = function () {
-      Folders.index(user_id).then(function(data){
+      Folders.show(user_id, folder_id).then(function(data){
         $scope.data = data;
       });
     };
 
     /**
-     * Show folder by folder id
+     * Show subject by folder id
      * @param folder: folder object
      */
     $scope.show = function (folder) {
-      $state.go('')
+      $state.go('users.user.folders.folder', {user_id: user_id, folder_id: folder.id});
     };
 
     /**

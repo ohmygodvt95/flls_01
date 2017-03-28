@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   scope :api do
     scope :v1 do
       resources :users, only: [:show] do
-        resources :folders, only: [:index, :create]
+        resources :folders, only: [:index, :show, :create]
         resources :subjects, only: [:index, :create]
+        resources :sidebar, only: [:index]
       end
     end
   end
