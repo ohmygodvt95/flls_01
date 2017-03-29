@@ -83,6 +83,15 @@ app
           }
         }
       })
+      .state('users.user.flash_card', {
+        url: '/flash_card',
+        views: {
+          'content@users': {
+            templateUrl: 'views/flashcard/index.html',
+            controller: 'FlashCardsController'
+          }
+        }
+      })
       .state('home', {
         url: '/home',
         views: {

@@ -34,6 +34,9 @@ en:
     word_definition: "word definition"
     there_are: "There are "
     test_word: "100 word"
+    flash_card: "Flash card"
+    test: "Test"
+    match: "Match"
   sidebar:
     latest_activity: "Latest activity"
     settings: "Settings"
@@ -41,3 +44,6 @@ en:
     your_subjects: "Your subjects"
     create_folder: "Create a folder"
     your_folders: "Your folders"
+  flash_card:
+    front: "Front"
+    back: "Back"
