@@ -49,6 +49,13 @@ en:
     update:
       success: "Updated folder: "
       failure: "Update failure"
+    destroy:
+      success: "Folder %{name} has been deleted "
+      failure: "Something wrong when delete folder"
+      are_you_sure: "Are you sure?"
+      will_be_delete: " will be delete?"
+      ok: "Do It"
+      cancel: "Cancel"
   subjects:
     subjects: " subjects"
     word: " word"

@@ -35,17 +35,40 @@ app
         })
           .then(function (data) {
             if (data) {
-              for(var i = 0; i < $scope.data.length; i++){
-                if($scope.data[i].id === data.data.id){
-                  $scope.data[i] = data.data;
-                  break;
-                }
-              }
+              $state.go($state.current, {}, {reload: true});
               Toast.show(data.message);
             }
           });
       };
-
+      /**
+       * Destroy folder
+       * @param ev
+       * @param folder
+       */
+      $scope.destroy = function (ev, folder) {
+        var confirm = $mdDialog.confirm({
+          locals: {folder: folder},
+          controller: 'FolderDestroyDialog',
+          templateUrl: 'views/folders/destroy.html',
+          parent: angular.element(document.body),
+          targetEvent: ev
+        });
+        $mdDialog.show(confirm).then(function(data) {
+          if(data){
+            Folders.destroy(user_id, folder).then(function (data) {
+              $state.go($state.current, {}, {reload: 'users'});
+              Toast.show(data.message);
+            }, function (data) {
+              Toast.show(data.message);
+            });
+          }
+        });
+      };
+      /**
+       * Fork folder
+       * @param ev
+       * @param folder
+       */
       $scope.fork = function (ev, folder) {
         ev.stopPropagation();
       };

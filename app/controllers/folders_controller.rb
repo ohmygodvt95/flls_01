@@ -1,7 +1,7 @@
 class FoldersController < ApplicationController
   before_action :authenticate_user!, only: [:create, :update, :destroy]
   before_action :find_user
-  before_action :find_folder, only: [:show, :update]
+  before_action :find_folder, only: [:show, :update, :destroy]
 
   def index
     @folders = if current_user && current_user.id == @user.id
@@ -37,7 +37,7 @@ class FoldersController < ApplicationController
       render json: {
         status: 200,
         error: false,
-        message: t("folders.create.created_folder") + params[:name],
+        message: t("folders.create.created_folder") + folder.name.to_s,
         data: folder.as_json({include: :user})
       }, status: 200
     else
@@ -74,6 +74,25 @@ class FoldersController < ApplicationController
         message: t("users.error.unauthorized"),
         data: nil
       }, status: 401
+    end
+  end
+
+  def destroy
+    folder = @folder
+    if @folder.destroy
+      render json: {
+        status: 200,
+        error: false,
+        message: t("folders.destroy.success", name: folder.name),
+        data: folder
+      }, status: 200
+    else
+      render json: {
+        status: 500,
+        error: true,
+        message: t("folders.destroy.failure"),
+        data: nil
+      }, status: 500
     end
   end
 
