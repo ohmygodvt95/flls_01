@@ -65,28 +65,34 @@ app
           }
         }
       })
-      .state('users.user.subjects', {
+      .state('subjects', {
         url: '/subjects',
+        abstract: true,
         views: {
-          'content@users': {
-            templateUrl: 'views/subjects/index.html',
-            controller: 'SubjectsController'
+          'main': {
+            templateUrl: 'views/subjects/layouts.html'
           }
         }
       })
-      .state('users.user.subjects.subject', {
+      .state('subjects.subject', {
         url: '/{subject_id: int}',
         views: {
-          'content@users': {
+          'content@subjects': {
             templateUrl: 'views/subjects/show.html',
             controller: 'ShowSubjectsController'
           }
+        },
+        resolve: {
+          subject_id: function ($stateParams) {
+            console.log($stateParams.subject_id);
+            return $stateParams.subject_id
+          }
         }
       })
-      .state('users.user.flash_card', {
-        url: '/flash_card',
+      .state('subjects.subject.flash_card', {
+        url: '/flashcards',
         views: {
-          'content@users': {
+          'content@subjects': {
             templateUrl: 'views/flashcard/index.html',
             controller: 'FlashCardsController'
           }
@@ -137,6 +143,14 @@ app
         views: {
           'main': {
             templateUrl: 'views/errors/folder_not_found.html'
+          }
+        }
+      })
+      .state('subject_not_found', {
+        url: '/errors/subject-not-found',
+        views: {
+          'main': {
+            templateUrl: 'views/errors/subject_not_found.html'
           }
         }
       });

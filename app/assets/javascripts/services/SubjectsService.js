@@ -7,5 +7,16 @@ app.service('Subjects', function ($http, $q, $state) {
       $state.go('user_not_found');
     });
     return deferred.promise;
-  }
+  };
+
+  this.show = function (subject_id) {
+    var deferred = $q.defer();
+    var promise = $http.get(app.basePath + 'subjects/' + subject_id)
+      .then(function (response) {
+        deferred.resolve(response.data.data);
+    }, function (response) {
+      $state.go('subject_not_found');
+    });
+    return deferred.promise;
+  };
 });
