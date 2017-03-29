@@ -1,5 +1,5 @@
 app
-  .controller('FlashCardsController', function ($scope, $state, $stateParams, Auth, Subjects, user_id) {
+  .controller('FlashCardsController', function ($scope, $state, $stateParams, Auth, Subjects) {
     /**
      * Run controller
      */

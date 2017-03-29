@@ -1,10 +1,10 @@
 app
-  .controller('ShowSubjectsController', function ($scope, $state, $stateParams, Auth, Subjects, user_id) {
+  .controller('ShowSubjectsController', function ($scope, $state, $stateParams, Auth, Subjects, Words, subject_id) {
     /**
      * Init data
      */
     $scope.init = function () {
-      Subjects.index(user_id).then(function(data){
+      Words.index(subject_id).then(function(data){
         $scope.data = data;
       });
     };
@@ -16,8 +16,9 @@ app
     $scope.show = function (subject) {
       $state.go('')
     };
-    $scope.flash_card = function () {
-      $state.go('users.user.flash_card', {user_id: user_id})
+    $scope.flashCard = function () {
+      $state.go('subjects.subject.flash_card',
+        {subject_id: subject_id})
     };
     /**
      * Run controller

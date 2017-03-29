@@ -4,13 +4,12 @@
   <div class="row">
     <div class="col-lg-3 col-md-4 col-xs-6 col-sm-4">
       <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch
-        ng-click="flash_card()">
+        ng-click="flashCard()">
         <md-card-title>
           <md-card-title-text>
             <span class="md-headline">
               <i class="fa fa-window-restore" aria-hidden="true"></i>
             </span>
-
             <span class="md-subhead"><%= I18n.t "subjects.flash_card" %></span>
           </md-card-title-text>
         </md-card-title>
@@ -41,23 +40,27 @@
       </md-card>
     </div>
   </div>
+  <hr>
   <div class="row">
-    <div class="col-sm-9 custom-list">
+    <div class="col-sm-12 custom-list">
       <md-list flex>
-        <md-list-item class="md-3-line custom-list-item" ng-repeat="item in data"
-                      ng-click="show(item)">
+        <md-list-item class="md-3-line custom-list-item"
+          ng-repeat="item in data" ng-click="show(item)">
           <div class="md-list-item-text" layout="column">
             <div class="row">
-              <div class="col-sm-4 word"><%= I18n.t "subjects.word_content" %></div>
-              <div class="col-sm-4 border-left word"><%= I18n.t "subjects.word_definition" %></div>
-              <div class="col-sm-4 action">
-                <md-button class="md-icon-button md-mini pull-right">
+              <div class="col-sm-5 word"> {{item.word_content}} </div>
+              <div class="col-sm-4 border-left word"> {{item.definition_content}} </div>
+              <div class="col-sm-3 action">
+                <md-button class="md-icon-button md-mini pull-right"
+                  aria-label="1">
                   <i class="fa fa-fw fa-pencil"></i>
                 </md-button>
-                <md-button class="md-icon-button md-mini pull-right">
+                <md-button class="md-icon-button md-mini pull-right"
+                  aria-label="2">
                   <i class="fa fa-fw fa-volume-up"></i>
                 </md-button>
-                <md-button class="md-icon-button md-mini pull-right">
+                <md-button class="md-icon-button md-mini pull-right"
+                  aria-label="3">
                   <i class="fa fa-fw fa-star-o"></i>
                 </md-button>
               </div>

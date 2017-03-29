@@ -59,6 +59,8 @@ en:
     flash_card: "Flash card"
     test: "Test"
     match: "Match"
+    error:
+      subject_not_found: "Subject does not exist!"
   sidebar:
     latest_activity: "Latest activity"
     settings: "Settings"
