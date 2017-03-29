@@ -1,0 +1,50 @@
+.ltt-subject {
+  .row {
+    .md-headline {
+      font-size: 80px;
+      line-height: 80px;
+      margin: 0 auto;
+      color: blue;
+    }
+
+    .md-subhead {
+      text-align: center;
+      color: blue;
+      font-weight: 700;
+      font-size: 1.875rem;
+      bottom: 1.25rem;
+    }
+  }
+  .stage {
+    -webkit-perspective: 1000;
+  }
+
+  .flashcard {
+    height: 300px;
+    width: 500px;
+    margin: 10% auto;
+    border: 1px solid gray;
+    box-shadow: 2px 2px 2px #000;
+    -webkit-transform-style: preserve-3d;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+  }
+
+  .flipped, .back {
+    transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+  }
+
+  .front, .back {
+    height: 300px;
+    width: 500px;
+    position: absolute;
+    text-align: center;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .front p, .back p {
+    margin-top: 25%;
+    font-size: 3em;
+  }
+}

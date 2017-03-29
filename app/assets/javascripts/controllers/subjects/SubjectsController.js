@@ -16,7 +16,9 @@ app
     $scope.show = function (subject) {
       $state.go('users.user.subjects.subject', {user_id: user_id, subject_id: subject.id})
     };
-
+    $scope.flash_card = function () {
+      $state.go('users.user.flash_card', {user_id: user_id})
+    };
     /**
      * Run controller
      */
