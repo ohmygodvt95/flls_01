@@ -19,4 +19,26 @@ app.service('Folders', function ($http, $q, $state) {
     });
     return deferred.promise;
   }
+
+  this.create = function (user_id, data) {
+    var deferred = $q.defer();
+    var promise = $http.post(app.basePath + 'users/' + user_id + '/folders', {folder: data})
+      .then(function (response) {
+        deferred.resolve(response.data);
+      }, function (response) {
+        deferred.resolve(response.data);
+      });
+    return deferred.promise;
+  };
+
+  this.update = function (user_id, data) {
+    var deferred = $q.defer();
+    var promise = $http.patch(app.basePath + 'users/' + user_id + '/folders/' + data.id, {folder: data})
+      .then(function (response) {
+        deferred.resolve(response.data);
+      }, function (response) {
+        deferred.resolve(response.data);
+      });
+    return deferred.promise;
+  }
 });

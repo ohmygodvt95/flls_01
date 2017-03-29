@@ -3,8 +3,8 @@ class SidebarController < ApplicationController
   before_action :find_user
 
   def index
-    @folders = @user.folders.limit Settings.limit
-    @subjects = @user.subjects.limit Settings.limit
+    @folders = @user.folders.order(id: :desc).limit Settings.limit
+    @subjects = @user.subjects.order(id: :desc).limit Settings.limit
     render json: {
       status: 200,
       error: false,

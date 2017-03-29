@@ -10,17 +10,21 @@
     </md-list-item>
     <md-divider></md-divider>
     <md-list-item class="heading">
-      <a ui-sref="users.user.subjects({ user_id: user.id })"><%= I18n.t "sidebar.your_subjects" %></a>
+      <a ui-sref="users.user.subjects({ user_id: user.id })">
+        <%= I18n.t "sidebar.your_subjects" %>
+      </a>
     </md-list-item>
-    <md-list-item ng-click="createSubject()">
+    <md-list-item ng-click="createSubject($event)">
       <i class="fa fa-fw fa-plus-square-o"></i>
       <%= I18n.t "sidebar.create_subject" %>
     </md-list-item>
     <md-divider></md-divider>
     <md-list-item class="heading">
-      <a ui-sref="users.user.folders({ user_id: user.id })"><%= I18n.t "sidebar.your_folders" %></a>
+      <a ui-sref="users.user.folders({ user_id: user.id })">
+        <%= I18n.t "sidebar.your_folders" %>
+      </a>
     </md-list-item>
-    <md-list-item ng-click="createFolder()">
+    <md-list-item ng-click="createFolder($event)">
       <i class="fa fa-fw fa-plus-square-o"></i>
       <%= I18n.t "sidebar.create_folder" %>
     </md-list-item>
