@@ -41,4 +41,15 @@ app.service('Folders', function ($http, $q, $state) {
       });
     return deferred.promise;
   }
+
+  this.destroy = function (user_id, data) {
+    var deferred = $q.defer();
+    var promise = $http.delete(app.basePath + 'users/' + user_id + '/folders/' + data.id)
+      .then(function (response) {
+        deferred.resolve(response.data);
+      }, function (response) {
+        deferred.resolve(response.data);
+      });
+    return deferred.promise;
+  }
 });
