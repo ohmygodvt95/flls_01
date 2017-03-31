@@ -4,11 +4,16 @@ app
      * Init data
      */
     $scope.init = function () {
-      Words.index(subject_id).then(function(data){
-        $scope.data = data;
+      $scope.record_id = 0;
+      $scope.data = [];
+      $scope.loadMore();
+    };
+    $scope.loadMore = function () {
+      Words.index(subject_id, $scope.record_id).then(function(data) {
+        $scope.data.push.apply($scope.data, data);
+        $scope.record_id = data[data.length - 1].id;
       });
     };
-
     /**
      * Show subject by subject id
      * @param subject: subject object
