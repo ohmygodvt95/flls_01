@@ -68,6 +68,7 @@ en:
     match: "Match"
     error:
       subject_not_found: "Subject does not exist!"
+    load_more: "Load more"
   sidebar:
     latest_activity: "Latest activity"
     settings: "Settings"

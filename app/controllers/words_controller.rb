@@ -3,11 +3,13 @@ class WordsController < ApplicationController
   before_action :find_subject, only: [:index]
 
   def index
+    @words = @subject.words.offset(params[:record_id] || 0)
+      .take Settings.limit_word_record
     render json: {
       status: 200,
       error: false,
       message: nil,
-      data: @subject.words.as_json
+      data: @words.as_json
     }, status: 200
   end
 
