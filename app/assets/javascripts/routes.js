@@ -74,6 +74,22 @@ app
           }
         }
       })
+      .state('subjects.new', {
+        url: '/new',
+        views: {
+          'content@subjects': {
+            templateUrl: 'views/subjects/new.html',
+            controller: 'NewSubjectsController'
+          }
+        },
+        onEnter: function (Auth, $state) {
+          Auth.currentUser()
+            .then(function (user) {
+            }, function (error) {
+              $state.go('welcome');
+            });
+        }
+      })
       .state('subjects.subject', {
         url: '/{subject_id: int}',
         views: {

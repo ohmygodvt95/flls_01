@@ -1,0 +1,97 @@
+<form action="" class="set" name="formNew">
+  <div class="row set-header">
+    <div class="col-sm-10 col-sm-offset-1">
+      <h1 class="fixed">
+        <%= I18n.t "subjects.new.create_a_new_set" %>
+        <md-button class="md-raised md-primary pull-right"
+          type="submit" ng-click="create()" ng-disabled="formNew.$invalid + inProgress">
+          <%= I18n.t "subjects.new.create" %>
+        </md-button>
+      </h1>
+      <hr>
+      <br>
+      <div class="row">
+        <div class="col-sm-12" ng-show="formNew.$invalid">
+          <p class="text-center text-danger">
+            * <%= I18n.t "subjects.new.error.title_require" %>
+          </p>
+        </div>
+        <div class="col-sm-7">
+          <md-input-container class="md-block">
+            <label><%= I18n.t "subjects.new.title" %></label>
+            <input type="text" title="<%= I18n.t "subjects.new.title" %>"
+              required minlength="10" ng-model="subject.name">
+          </md-input-container>
+        </div>
+        <div class="col-sm-5">
+          <md-input-container class="md-block">
+            <label><%= I18n.t "subjects.new.visible" %></label>
+            <md-select  ng-model="subject.permission"
+              title="<%= I18n.t "subjects.new.visible" %>">
+              <md-option value="0">
+                <%= I18n.t "folders.new.everyone" %>
+              </md-option>
+              <md-option value="1">
+                <%= I18n.t "folders.new.only_me" %>
+              </md-option>
+            </md-select>
+          </md-input-container>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row set-body">
+    <div class="col-sm-10 col-sm-offset-1">
+      <div class="row set-row" ng-repeat="item in subject.words_attributes">
+        <div class="col-sm-1 set-col num">
+          <span class="num-x">{{ $index + 1 }}</span>
+          <span class="fa fa-fw fa-trash" ng-click="delWord($index)"></span>
+          </div>
+        <div class="col-sm-11">
+          <div class="row">
+            <div class="col-sm-6 set-col word">
+              <md-input-container class="md-block">
+                <label><%= I18n.t "subjects.new.enter_term" %></label>
+                <input type="text" title="<%= I18n.t "subjects.new.enter_term" %>"
+                  ng-model="item.word_content">
+                <div class="hint"><%= I18n.t "subjects.new.term" %></div>
+              </md-input-container>
+            </div>
+            <div class="col-sm-6 set-col define">
+              <md-input-container class="md-block">
+                <label><%= I18n.t "subjects.new.enter_definition" %></label>
+                <input type="text" title="<%= I18n.t "subjects.new.enter_definition" %>"
+                  ng-model="item.definition_content">
+                <div class="hint"><%= I18n.t "subjects.new.definition" %></div>
+              </md-input-container>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 add-index" layout="row" layout-align="center">
+          <md-button class="md-fab md-raised md-mini md-primary" ng-click="addWordIndex($index)">
+            <i class="fa fa-fw fa-plus"></i>
+            <md-tooltip>
+              <%= I18n.t "subjects.new.add_a_word_in_this_line" %>
+            </md-tooltip>
+          </md-button>
+        </div>
+      </div>
+      <div class="row btn-add">
+        <div class="col-sm-12" layout="row" layout-align="center">
+          <md-button class="md-raised md-primary" ng-click="addWord()">
+            <i class="fa fa-fw fa-plus-circle"></i>
+            <%= I18n.t "subjects.new.add_a_word" %>
+          </md-button>
+        </div>
+      </div>
+      <div class="row btn-add">
+        <div class="col-sm-12">
+          <md-button class="md-raised md-primary btn-big  pull-right"
+            ng-click="create()" ng-disabled="formNew.$invalid + inProgress">
+            <%= I18n.t "subjects.new.create" %>
+          </md-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

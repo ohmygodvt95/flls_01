@@ -48,6 +48,16 @@ navbar {
     border: none;
     border-radius: 0;
     background-color: $primary-color;
+    margin-bottom: 0;
+    .navbar-brand {
+      padding-left: 100px;
+      line-height: 40px;
+      padding-right: 70px;
+    }
+    .btn-me{
+      margin-top: 0;
+      margin-bottom: 0;
+    }
     .navbar-brand, .navbar-nav > li > a {
       color: $secondary-color !important;
       font-weight: bold;
@@ -57,6 +67,34 @@ navbar {
     }
     .open > a:hover {
       background-color: $primary-color !important;
+    }
+    .navbar-left li {
+      padding-top: 5px;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    .splash{
+      color: #FFFFFF;
+      padding: 30px 20px 0 20px!important;
+    }
+    .search{
+      width: 200px;
+      .name, input, label{
+        color: #FFFFFF;
+      }
+      margin-bottom: 0;
+      .md-errors-spacer{
+        display: none;
+      }
+      md-input-container{
+        margin-bottom: 0;
+        margin-top: 15px;
+      }
+      md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+        transition: 0.5s;
+        border-color: $accent-color;
+        width: 400px;
+      }
     }
   }
 }
@@ -115,6 +153,7 @@ navbar {
   box-shadow: 0 9px 0 0 white, 0 -9px 0px 0px white,
   12px 0 15px -4px rgba(192, 202, 206, 0.8),
   -12px 0 15px -4px rgba(192, 202, 206, 0.8);
+  margin-top: 10px;
   .heading a {
     font-size: 13px;
     font-weight: bolder;
@@ -145,4 +184,67 @@ navbar {
 .heading-info{
   padding: 20px 0;
   border-bottom: 5px solid $accent-color;
+}
+.set{
+
+  .set-header{
+    background-color: $secondary-color;
+    margin-bottom: 25px;
+  }
+
+  .set-body{
+    .btn-add {
+      margin-top: 25px;
+
+    }
+    .btn-big{
+      padding: 20px 50px;
+    }
+    .set-row:hover .fa-trash{
+      display: inline-block;
+    }
+    .set-row:hover .add-index button{
+      transform: scale(0.6);
+    }
+    .set-row:hover .num-x{
+      display: none;
+    }
+    .set-row{
+      .fa-trash {
+        display: none;
+      }
+      .add-index{
+        height: 25px;
+        button{
+          margin-top: -5px;
+          transform: scale(0);
+        }
+      }
+      .set-col{
+        margin-top: 5px;
+        background-color: $secondary-color;
+        height: 110px;
+        border-radius: 3px;
+      }
+      input{
+        font-size: 25px;
+      }
+      .num{
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+        span{
+          line-height: 110px;
+        }
+      }
+      .word, .define{
+        padding-top: 20px;
+      }
+      .hint{
+        padding: 40px 0;
+        text-transform: uppercase;
+        color: gray;
+      }
+    }
+  }
 }

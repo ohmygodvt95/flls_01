@@ -19,4 +19,15 @@ app.service('Subjects', function ($http, $q, $state) {
     });
     return deferred.promise;
   };
+
+  this.create = function (data) {
+    var deferred = $q.defer();
+    var promise = $http.post(app.basePath + 'subjects',{subject: data})
+      .then(function (response) {
+        deferred.resolve(response.data);
+      }, function (response) {
+        deferred.resolve(response.data);
+      });
+    return deferred.promise;
+  };
 });

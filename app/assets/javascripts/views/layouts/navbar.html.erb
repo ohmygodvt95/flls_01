@@ -9,33 +9,58 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" ui-sref="home">
-        <a class="navbar-brand" href="#">
-          <%= I18n.t "app_name" %>
-        </a>
+        <%= I18n.t "app_name" %>
       </a>
     </div>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav navbar-left">
+        <li>
+          <md-button ui-sref="subjects.new" class="md-raised md-primary">
+            <i class="fa fa-plus-circle fa-fw"></i><%= I18n.t "navbar.create" %>
+          </md-button>
+        </li>
+        <li class="splash">|</li>
+        <li>
+          <form action="#" name="formSearch" class="search">
+            <md-input-container class="md-block">
+              <label><%= I18n.t "navbar.search" %></label>
+              <md-icon md-font-icon="fa fa-search fa-fw fa-2x" class="name"></md-icon>
+              <input ng-model="search" title="<%= I18n.t "navbar.search" %>">
+            </md-input-container>
+          </form>
+        </li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <li ng-if="!signedIn()">
           <a href="<%= user_google_oauth2_omniauth_authorize_path %>" class="md-button">
             <%= I18n.t("navbar.login_with_google") %>
           </a>
         </li>
-        <li class="dropdown" ng-if="signedIn()">
-          <a href="#" class="dropdown-toggle">
-            <md-menu md-position-mode="target-right target" md-offset="-5 50">
+        <li ng-if="signedIn()">
+          <a href="#">
+            <md-menu md-position-mode="target-right target" md-offset="0 55"
+              class="menu-left">
               {{ user.username }}
-              <md-fab aria-label="Open menu" ng-click="$mdMenu.open($event)">
+              <md-button aria-label="Open menu" ng-click="$mdMenu.open($event)"
+                class="md-raised btn-me md-cornered md-fab md-mini">
                 <span class="fa fa-fw fa-cog"></span>
-              </md-fab>
+              </md-button>
               <md-menu-content width="3">
                 <md-menu-item>
+                  <md-button ui-sref="users.user({user_id: user.id})">
+                    <i class="fa fa-window-restore fa-fw"></i>
+                    <%= I18n.t "navbar.your_study" %>
+                  </md-button>
+                </md-menu-item>
+                <md-menu-item>
                   <md-button ui-sref="users.user.profile({user_id: user.id})">
+                    <i class="fa fa-user fa-fw"></i>
                     <%= I18n.t "navbar.profile" %>
                   </md-button>
                 </md-menu-item>
                 <md-menu-item>
                   <md-button>
+                    <i class="fa fa-wrench fa-fw"></i>
                     <%= I18n.t "navbar.setting" %>
                   </md-button>
                 </md-menu-item>
