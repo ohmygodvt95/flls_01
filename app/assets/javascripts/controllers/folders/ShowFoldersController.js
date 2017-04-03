@@ -17,6 +17,9 @@ app
       $state.go('users.user.folders.folder', {user_id: user_id, folder_id: folder.id});
     };
 
+    $scope.showSet = function (subject) {
+      $state.go('subjects.subject', {subject_id: subject.id});
+    };
     /**
      * Run controller
      */

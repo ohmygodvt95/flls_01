@@ -1,5 +1,38 @@
-<div class="ltt-subject">
-  <div class="stage">
+<div class="col-sm-12 ltt-subject">
+  <div class="col-sm-3 sidebar">
+    <md-list dense>
+      <md-card-title-text>
+        <md-button class="md-icon-button md-primary" aria-label="Settings">
+          <i class="fa fa-backward" aria-hidden="true"></i>
+        </md-button>
+        <span class="md-subhead"><%= I18n.t "flash_card.back" %></span>
+      </md-card-title-text>
+      <hr>
+      <md-card-title-text>
+        <md-button class="md-icon-button md-primary" aria-label="Settings">
+          <i class="fa fa-window-restore" aria-hidden="true"></i>
+        </md-button>
+        <span class="md-subhead"><%= I18n.t "flash_card.cards" %></span>
+      </md-card-title-text>
+      <md-slider ng-model="invert" min="0" max="100" aria-label="regular slider"></md-slider>
+      <hr>
+      <section class="col-sm-12 button" layout="column" layout-align="center">
+        <md-button class="md-raised">
+          <i class="fa fa-play" aria-hidden="true"></i>
+          <%= I18n.t "flash_card.play" %>
+        </md-button>
+        <md-button class="md-raised md-primary">
+          <i class="fa fa-random" aria-hidden="true"></i>
+          <%= I18n.t "flash_card.shuffle" %>
+        </md-button>
+        <md-button class="md-raised md-warn">
+          <i class="fa fa-list-ul" aria-hidden="true"></i>
+          <%= I18n.t "flash_card.options" %>
+        </md-button>
+      </section>
+    </md-list>
+  </div>
+  <div class="col-sm-9 stage">
     <div class="flashcard">
       <div class="front">
         <p><%= I18n.t "flash_card.front" %></p>

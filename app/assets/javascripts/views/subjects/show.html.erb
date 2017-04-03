@@ -1,5 +1,5 @@
-<div class="ltt-subject">
-  <h2><%= I18n.t "subjects.there_are" %> {{ data.length }} <%= I18n.t "subjects.word" %></h2>
+<div class="col-sm-10 col-sm-offset-1 ltt-subject">
+  <h1>{{ subject.name }}</h1>
   <hr>
   <div class="row">
     <div class="col-lg-3 col-md-4 col-xs-6 col-sm-4">
@@ -42,10 +42,18 @@
   </div>
   <hr>
   <div class="row">
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>
+          <%= I18n.t "subjects.there_are" %>{{ subject.words_limit.length }} / {{ subject.count_words }}
+          <%= I18n.t "subjects.word" %>
+        </h2>
+      </div>
+    </div>
     <div class="col-sm-12 custom-list">
       <md-list flex>
         <md-list-item class="md-3-line custom-list-item"
-          ng-repeat="item in data" ng-click="show(item)">
+          ng-repeat="item in subject.words_limit" ng-click="show(item)">
           <div class="md-list-item-text" layout="column">
             <div class="row">
               <div class="col-sm-5 word"> {{item.word_content}} </div>
@@ -70,7 +78,12 @@
       </md-list>
     </div>
   </div>
-  <md-button class="md-raised md-primary" ng-click="loadMore()">
-    <%= I18n.t "subjects.load_more" %>
-  </md-button>
+  <div class="row">
+    <div class="col-sm-12" layout="column" layout-align="center">
+      <md-button class="md-raised md-primary btn-lg"
+        ng-click="loadMore()" ng-if="canLoadMoreData">
+        <%= I18n.t "subjects.load_more" %>
+      </md-button>
+    </div>
+  </div>
 </div>

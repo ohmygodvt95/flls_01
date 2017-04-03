@@ -6,6 +6,7 @@
     <%= stylesheet_link_tag "application", media: "all" %>
     <%= csrf_meta_tags %>
     <meta name="base" content="<%= root_path %>api/v1/">
+    <meta name="limit_word_record" content="<%= Settings.limit_word_record %>">
   </head>
   <body ng-app="FlashGo">
     <%= render "layouts/header" %>
@@ -15,9 +16,6 @@
       <% end %>
       <%= yield %>
     </div>
-    <footer class="footer">
-      <%= render "layouts/footer" %>
-    </footer>
     <%= javascript_include_tag "application" %>
   </body>
 </html>

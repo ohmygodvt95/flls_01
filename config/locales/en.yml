@@ -95,3 +95,9 @@ en:
   flash_card:
     front: "Front"
     back: "Back"
+    cards: "Cards"
+    play: "Play"
+    shuffle: "Shuffle"
+    options: "Options"
+  error:
+    permission_denied: "Permission denied !"

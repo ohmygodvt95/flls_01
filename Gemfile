@@ -18,6 +18,7 @@ gem "config"
 gem "active_model_serializers"
 gem "devise"
 gem "omniauth-google-oauth2"
+gem "cancancan"
 
 group :development, :test do
   gem "byebug", platform: :mri

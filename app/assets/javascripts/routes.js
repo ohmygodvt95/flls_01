@@ -169,6 +169,14 @@ app
             templateUrl: 'views/errors/subject_not_found.html'
           }
         }
-      });
+      })
+    .state('permission_denied', {
+      url: '/errors/permission_denied',
+      views: {
+        'main': {
+          templateUrl: 'views/errors/permission_denied.html'
+        }
+      }
+    });
     $urlRouterProvider.otherwise('/welcome');
   });
