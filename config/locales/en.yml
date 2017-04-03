@@ -7,6 +7,9 @@ en:
     logout: Logout
     profile: Profile
     setting: Setting
+    create: Create
+    search: Search
+    your_study: Your Study
   static_pages:
     about:
       title: "About"
@@ -69,6 +72,19 @@ en:
     error:
       subject_not_found: "Subject does not exist!"
     load_more: "Load more"
+    new:
+      create_a_new_set: Create a new study set
+      create: Create
+      title: Title
+      visible: Visible
+      term: Term
+      enter_term: Enter term
+      definition: Definition
+      enter_definition: Enter definition
+      add_a_word: Add a word
+      add_a_word_in_this_line: Add a word in this line
+      error:
+        title_require: Title is require and min characters is 10
   sidebar:
     latest_activity: "Latest activity"
     settings: "Settings"

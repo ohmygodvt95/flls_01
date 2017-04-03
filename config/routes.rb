@@ -9,10 +9,10 @@ Rails.application.routes.draw do
     scope :v1 do
       resources :users, only: [:show] do
         resources :folders, except: [:edit, :new]
-        resources :subjects, only: [:index, :create]
+        resources :subjects, only: [:index]
         resources :sidebar, only: [:index]
       end
-      resources :subjects, only: [:show] do
+      resources :subjects, only: [:show, :create] do
         resources :flash_card, only: [:show]
         resources :words, only: [:index, :show]
       end

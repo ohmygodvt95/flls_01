@@ -6,9 +6,6 @@ class CreateShares < ActiveRecord::Migration[5.0]
       t.references :folder, foreign_key: true
       t.references :subject, foreign_key: true
       t.string :token
-      t.datetime :created_at
-      t.datetime :updated_at
-
       t.timestamps
     end
   end

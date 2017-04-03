@@ -59,11 +59,11 @@ ActiveRecord::Schema.define(version: 20170314074705) do
   create_table "subjects", force: :cascade do |t|
     t.string   "name"
     t.integer  "permission"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "folder_id"
     t.integer  "fork_from"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["folder_id"], name: "index_subjects_on_folder_id"
     t.index ["user_id"], name: "index_subjects_on_user_id"
   end
