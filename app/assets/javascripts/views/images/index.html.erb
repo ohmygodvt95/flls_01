@@ -1,0 +1,57 @@
+<md-dialog aria-label="<%= I18n.t "images.your_images" %>" class="images">
+  <form ng-cloak name="form" enctype="multipart/form-data" method="post" id="form">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>
+          <%= I18n.t "images.you_have" %> {{ data.count_images }} <%= I18n.t "images.images" %>
+          <md-button class="md-mini md-raised" ng-click="prev()"
+            ng-disabled="data.current_page == 1">
+            <%= I18n.t "images.prev" %>
+          </md-button>
+          {{ data.current_page }} / {{ data.total_pages }}
+          <md-button class="md-mini md-raised" ng-click="next()"
+            ng-disabled="data.current_page == data.total_pages">
+            <%= I18n.t "images.next" %>
+          </md-button>
+        </h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="hide()">
+          <md-icon md-font-icon="fa fa-close"
+            aria-label="<%= I18n.t "folders.new.close_dialog" %>"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content images-body">
+        <md-progress-linear md-mode="indeterminate" ng-if="inProgress"></md-progress-linear>
+        <div class="row">
+          <div class="col-sm-3" ng-repeat="image in data.images">
+            <md-button class="btn-del md-mini md-icon-button" ng-click="delete(image)">
+              <md-tooltip><%= I18n.t "images.delete_this_image" %></md-tooltip>
+              <i class="fa fa-trash"></i>
+            </md-button>
+            <img ng-src="{{ image.src.thumb.url }}" alt="" class="img-responsive"/>
+            <div class="info">
+              {{ image.created_at.substr(0, 19) }}
+            </div>
+            <md-button class="btn-get md-icon-button" ng-click="get(image)">
+              <md-tooltip><%= I18n.t "images.choose_this_image" %></md-tooltip>
+              <i class="fa fa-check fa-4x"></i>
+            </md-button>
+          </div>
+        </div>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row" class="images-footer">
+      <input accept="image/*" name="file" type="file" id="file" flex/>
+      <md-button type="submit" ng-click="create()" class="md-raised md-primary"
+        ng-disabled="inProgress">
+        <i class="fa fa-circle-o-notch fa-fw fa-spin" ng-if="inProgress"></i>
+        <%= I18n.t "images.add_a_image" %>
+      </md-button>
+      <md-button ng-click="hide()" class="md-raised">
+        <%= I18n.t "images.cancel" %>
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

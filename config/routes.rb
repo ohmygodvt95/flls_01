@@ -16,6 +16,7 @@ Rails.application.routes.draw do
         resources :flash_card, only: [:show]
         resources :words, only: [:index, :show]
       end
+      resources :images, only: [:index, :show, :create, :destroy]
     end
   end
 end

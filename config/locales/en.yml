@@ -101,3 +101,19 @@ en:
     options: "Options"
   error:
     permission_denied: "Permission denied !"
+  images:
+    your_images: Your images
+    add_a_image: Upload new image
+    you_have: "You have "
+    images: images
+    cancel: Cancel
+    prev: Prev
+    next: Next
+    cant_upload_image: Can't upload this image
+    delete_success: Image have been deleted
+    delete_this_image: Delete this image
+    choose_this_image: Choose this image
+    image_for_term: Image for term
+    image_for_definition: Image for definition
+    remove_image: Remove image
+    view_image: View image

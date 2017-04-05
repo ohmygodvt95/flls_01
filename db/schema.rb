@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314074705) do
+ActiveRecord::Schema.define(version: 20170403181348) do
 
   create_table "folders", force: :cascade do |t|
     t.string   "name"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 20170314074705) do
     t.integer  "user_id"
     t.integer  "fork_from"
     t.index ["user_id"], name: "index_folders_on_user_id"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string   "src"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_images_on_user_id"
   end
 
   create_table "matches", force: :cascade do |t|
@@ -87,9 +95,9 @@ ActiveRecord::Schema.define(version: 20170314074705) do
 
   create_table "words", force: :cascade do |t|
     t.string   "word_content"
-    t.string   "word_image"
+    t.integer  "word_image"
     t.string   "definition_content"
-    t.string   "definition_image"
+    t.integer  "definition_image"
     t.integer  "subject_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false

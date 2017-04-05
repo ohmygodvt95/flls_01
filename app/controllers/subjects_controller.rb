@@ -24,7 +24,7 @@ class SubjectsController < ApplicationController
         status: 200,
         error: false,
         message: nil,
-        data: subject.as_json({include: :words})
+        data: subject.as_json
       }, status: 200
     else
       render json: {
@@ -67,8 +67,14 @@ class SubjectsController < ApplicationController
   end
 
   def new_params
-    params.require(:subject).permit :name, :permission, :user_id,
-      words_attributes: [:word_content, :word_image, :definition_content, :definition_image]
+    params.require(:subject)
+      .permit :name, :permission, :user_id,
+        words_attributes: [
+          :word_content,
+          :definition_content,
+          :word_image,
+          :definition_image
+        ]
   end
 
   def find_subject

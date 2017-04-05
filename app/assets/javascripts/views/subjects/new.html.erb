@@ -54,7 +54,27 @@
                 <label><%= I18n.t "subjects.new.enter_term" %></label>
                 <input type="text" title="<%= I18n.t "subjects.new.enter_term" %>"
                   ng-model="item.word_content">
-                <div class="hint"><%= I18n.t "subjects.new.term" %></div>
+                <div class="hint">
+                  <%= I18n.t "subjects.new.term" %>
+                  <a class="md-icon-button pull-right" ng-if="checkImage(item, 'term')"
+                    ng-href="{{ item.word_image_data.src.url }}" target="_new">
+                    <md-tooltip>
+                      <%= I18n.t "images.view_image" %>
+                    </md-tooltip>
+                    <i class="fa fa-fw fa-eye"></i>
+                  </a>
+                  <span class="md-icon-button pull-right" ng-click="addImageIntoTerm($event, item)">
+                    <i class="fa fa-fw fa-image {{ checkImage(item, 'term') }}"></i>
+                    <md-tooltip>
+                      <%= I18n.t "images.image_for_term" %>
+                    </md-tooltip>
+                  </span>
+                  <span class="md-icon-button pull-right" ng-click="removeImage(item, 'term')"
+                    ng-if="checkImage(item, 'term')">
+                    <i class="fa fa-fw fa-close"></i>
+                    <md-tooltip><%= I18n.t "images.remove_image" %></md-tooltip>
+                  </span>
+                </div>
               </md-input-container>
             </div>
             <div class="col-sm-6 set-col define">
@@ -62,7 +82,25 @@
                 <label><%= I18n.t "subjects.new.enter_definition" %></label>
                 <input type="text" title="<%= I18n.t "subjects.new.enter_definition" %>"
                   ng-model="item.definition_content">
-                <div class="hint"><%= I18n.t "subjects.new.definition" %></div>
+                <div class="hint">
+                  <%= I18n.t "subjects.new.definition" %>
+                  <a class="md-icon-button pull-right" ng-if="checkImage(item, 'definition')"
+                     ng-href="{{ item.definition_image_data.src.url }}" target="_new">
+                    <md-tooltip>
+                      <%= I18n.t "images.view_image" %>
+                    </md-tooltip>
+                    <i class="fa fa-fw fa-eye"></i>
+                  </a>
+                  <span class="md-icon-button pull-right" ng-click="addImageIntoDefinition($event, item)">
+                    <i class="fa fa-fw fa-image {{ checkImage(item, 'definition') }}"></i>
+                    <md-tooltip><%= I18n.t "images.image_for_definition" %></md-tooltip>
+                  </span>
+                  <span class="md-icon-button pull-right" ng-click="removeImage(item, 'definition')"
+                    ng-if="checkImage(item, 'definition')">
+                    <i class="fa fa-fw fa-close"></i>
+                    <md-tooltip><%= I18n.t "images.remove_image" %></md-tooltip>
+                  </span>
+                </div>
               </md-input-container>
             </div>
           </div>
