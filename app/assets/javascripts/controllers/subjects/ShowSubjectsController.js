@@ -1,17 +1,21 @@
 app
   .controller('ShowSubjectsController', function ($scope, $state, $stateParams, Auth, Subjects, Words, subject_id) {
+    $scope.canLoadMoreData = true;
     /**
      * Init data
      */
     $scope.init = function () {
-      $scope.record_id = 0;
-      $scope.data = [];
-      $scope.loadMore();
+      Subjects.show(subject_id).then(function(data){
+        $scope.subject = data;
+        $scope.record_id = data.words_limit.slice(-1).pop().id;
+      });
     };
     $scope.loadMore = function () {
       Words.index(subject_id, $scope.record_id).then(function(data) {
-        $scope.data.push.apply($scope.data, data);
-        $scope.record_id = data[data.length - 1].id;
+        $scope.subject.words_limit.push.apply($scope.subject.words_limit, data);
+        $scope.record_id = data.slice(-1).pop().id;
+        if (data.length < app.limit_word_record)
+          $scope.canLoadMoreData = false;
       });
     };
     /**

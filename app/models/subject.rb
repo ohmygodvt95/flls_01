@@ -10,4 +10,12 @@ class Subject < ApplicationRecord
   def reject_words attributes
     attributes[:word_content].blank?
   end
+
+  def words_limit
+    self.words.take Settings.limit
+  end
+
+  def count_words
+    self.words.count
+  end
 end

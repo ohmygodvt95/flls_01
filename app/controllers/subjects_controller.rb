@@ -1,6 +1,7 @@
 class SubjectsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :update, :destroy]
-  before_action :find_user, only: [:index]
+  before_action :find_user, only: :index
+  before_action :find_subject, only: :show
 
   def index
     @subjects = if current_user && current_user.id == @user.id
@@ -18,7 +19,7 @@ class SubjectsController < ApplicationController
 
   def create
     subject = Subject.new new_params
-    if subject.save!
+    if subject.save
       render json: {
         status: 200,
         error: false,
@@ -33,7 +34,24 @@ class SubjectsController < ApplicationController
         data: nil
       }, status: 500
     end
+  end
 
+  def show
+    if can? :read, @subject
+      render json: {
+        status: 200,
+        error: false,
+        message: nil,
+        data: @subject.as_json({include: [:user, :words_limit], methods: :count_words})
+      }, status: 200
+    else
+      render json: {
+        status: 401,
+        error: false,
+        message: t("error.permission_denied"),
+        data: nil
+      }, status: 401
+    end
   end
 
   private
@@ -49,8 +67,18 @@ class SubjectsController < ApplicationController
   end
 
   def new_params
-    params.require(:subject)
-      .permit :name, :permission, :user_id,
-        words_attributes: [:word_content, :word_image, :definition_content, :definition_image]
+    params.require(:subject).permit :name, :permission, :user_id,
+      words_attributes: [:word_content, :word_image, :definition_content, :definition_image]
+  end
+
+  def find_subject
+    @subject = Subject.find_by id: params[:id]
+    unless @subject
+      render json: {
+        status: 404,
+        error: true,
+        message: t("subjects.error.subject_not_found")
+      }, status: 404
+    end
   end
 end

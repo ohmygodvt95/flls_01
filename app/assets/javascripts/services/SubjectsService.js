@@ -15,7 +15,7 @@ app.service('Subjects', function ($http, $q, $state) {
       .then(function (response) {
         deferred.resolve(response.data.data);
     }, function (response) {
-      $state.go('subject_not_found');
+      $state.go('permission_denied');
     });
     return deferred.promise;
   };
